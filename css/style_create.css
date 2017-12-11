@@ -1,0 +1,312 @@
+#head > a {
+  text-decoration: none;
+  color:white;
+}
+#head > a:hover {
+  color:grey;
+}
+.body {
+  margin:0px;
+  padding:0px;
+  flex: .95 .95 95%;
+  order: 1;
+  display:flex;
+  flex-flow:row;
+  font-size: 1rem;
+  font-weight: bold;
+  color:white;
+}
+.main > .body > #left {
+  margin:0px;
+  padding:0px;
+  flex: .5 .5 50%;
+  order: 1;
+  display:flex;
+  flex-flow:column;
+}
+.main > .body > #left > #view {
+  flex: .5 .5 50%;
+  order:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-flow:column;
+  //background:url("https://static.pexels.com/photos/189187/pexels-photo-189187.jpeg");
+  background:black;
+  background-size:cover;
+  margin:4px;
+  padding:5px;
+  border: 1px solid black;
+  border-radius: 3pt;
+}
+#rear {
+  background:black;
+  margin:0;
+  padding:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-flow:column;
+  //display:none;
+}
+#rear > button {
+  border:none;
+  background: white;
+  padding: 8px;
+  margin:0;
+  font-family: 'Josefin Slab';
+  font-size: 1rem;
+  text-decoration:underline overline;
+  color:black;
+}
+form {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-flow:column;
+}
+#rear > form > input[type="submit"] {
+  border: 1px solid white;
+  border-radius:5px;
+  font-family: 'Josefin Slab';
+  font-size:1rem;
+  background: #66b3ff;
+  color: black;
+  padding: 6px 12px;
+  width: 146.5px;
+  cursor: pointer;
+}
+#rear > form > input[type="file"] {
+  display:none;
+}
+.file-upload-style {
+  border: 1px solid white;
+  border-radius:5px;
+  font-family: 'Josefin Slab';
+  background: #66b3ff;
+  color: black;
+  padding: 6px 12px;
+  font-size:1rem;
+  width: 120px;
+  cursor: pointer;
+  margin-bottom:3px;
+}
+#rear > button {
+  border: 1px solid #ccc;
+  border-radius:5px;
+  display: inline-block;
+  font-family: 'Josefin Slab';
+  background: white;
+  color: black;
+  margin-top:25px;
+  padding: 6px 12px 6px 12px;
+  font-size:1rem;
+  cursor: pointer;
+}
+#face {
+  //background:black;
+  margin:0;
+  padding:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  display:none;
+}
+.hide-show {
+  border:none;
+  background: black;
+  padding: 15px;
+  margin:0;
+  font-family: 'Josefin Slab';
+  font-size: 1.5rem;
+  text-decoration:underline overline;
+  color:white;
+}
+.main > .body > #left > #upload {
+  flex: .5 .5 50%;
+  order:2;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-flow:column;
+  //background:url("https://static.pexels.com/photos/226243/pexels-photo-226243.jpeg");
+  background:black;
+  background-size:cover;
+  margin:4px;
+  padding:5px;
+  border: 1px solid black;
+  border-radius: 3pt;
+}
+.body > #right {
+  margin:4px;
+  padding:5px;
+  flex: .5 .5 50%;
+  border: 1px solid black;
+  border-radius: 3pt;
+  order: 2;
+  background: url("https://static.pexels.com/photos/205385/pexels-photo-205385.jpeg");
+  background-size: cover;
+  box-shadow: inset 0 0 0 1000px rgba(0,0,0,.8);
+  //display:flex;
+  //align-items:center;
+  //justify-content:center;
+}
+
+.body > #right > #icon {
+  margin:200px;
+  padding:0px;
+  //order:1;
+  //flex: 1 1 100%;
+  display:flex;
+  flex-flow:column;
+  align-items: center;
+  justify-content: center;
+}
+.body > #right > #icon > p {
+  order: 2;
+  font-size:.6rem;
+  text-align:center;
+  color:grey;
+}
+.body > #right > #icon > img {
+  order: 1;
+  -webkit-filter: invert(100%);
+}
+.body > .select-container > div > button {
+  border:none;
+  background: black;
+  padding: 15px;
+  margin:0;
+  text-decoration:overline underline;
+  font-family: 'Josefin Slab';
+  font-size: 1.5rem;
+  color:white;
+  border-radius:4px;
+}
+#right > #img-preview-div {
+  display:inline-block;
+  text-align:center;
+  width:100%;
+  overflow:scroll;
+}
+#right > #img-preview-div > h1{
+  color:white;
+  font-family: 'Josefin Slab';
+  text-align:center;
+}
+.album {
+  padding:5px;
+  color:white;
+  font-family: 'Josefin Slab';
+  //text-align:center;
+  display:inline-block;
+}
+.album > form > input {
+  border: 1px solid white;
+  border-radius:2px;
+  font-family: 'Josefin Slab';
+  background: #66b3ff;
+  color: black;
+  padding: 2px 5px;
+  font-size:.7rem;
+  //width: 120px;
+  cursor: pointer;
+  margin-bottom:3px;
+}
+/*
+#head > a {
+  text-decoration: none;
+  color:white;
+}
+#head > a:hover {
+  color:grey;
+}
+.body {
+  margin:0px;
+  padding:0px;
+  flex: .95 .95 95%;
+  order: 1;
+  display:flex;
+  flex-flow:row;
+  font-size: 1rem;
+  font-weight: bold;
+  color:white;
+}
+/*
+.main > .body > #left {
+  margin:0px;
+  padding:0px;
+  flex: .5 .5 50%;
+  order: 1;
+  display:flex;
+  flex-flow:column;
+}
+.main > .body > #left > #t {
+  flex: .5 .5 50%;
+  order: 1;
+  margin:4px;
+  padding:5px;
+  background:#66b3ff;
+  border: 1px solid black;
+  border-radius: 3pt;
+  background: url("https://static.pexels.com/photos/189187/pexels-photo-189187.jpeg");
+  background-size: cover;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.main > .body > #left > #b {
+  flex: .5 .5 50%;
+  order: 2;
+  margin:4px;
+  padding:5px;
+  background:#66b3ff;
+  border: 1px solid black;
+  border-radius: 3pt;
+  background: url("https://static.pexels.com/photos/226243/pexels-photo-226243.jpeg");
+  background-size: cover;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.body > #right {
+  margin:4px;
+  padding:5px;
+  flex: .5 .5 50%;
+  border: 1px solid black;
+  border-radius: 3pt;
+  order: 2;
+  background: url("https://static.pexels.com/photos/205385/pexels-photo-205385.jpeg");
+  background-size: cover;
+  box-shadow: inset 0 0 0 1000px rgba(0,0,0,.8);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.body > #right > #icon {
+  margin:200px;
+  padding:0px;
+  order:1;
+  flex: 1 1 100%;
+}
+.body > #right > #icon > p {
+  font-size:.6rem;
+  text-align:center;
+  color:grey;
+}
+.body > #right > #icon > img {
+  -webkit-filter: invert(100%);
+}
+.body > .select-container > div > button {
+  border:none;
+  background: black;
+  padding: 15px;
+  margin:0;
+  text-decoration:overline underline;
+  font-family: 'Josefin Slab';
+  font-size: 1.5rem;
+  color:white;
+  border-radius:4px;
+}
+*/

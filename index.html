@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Life in Chroma</title>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Josefin+Slab">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/script.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <header>
+        <div id="intro">Give us your photos and we'll give you a beautiful album!</div>
+        <div id="blank"></div>
+        <div id="login">
+          {% if user %}
+          Welcome {{ user.email() }}
+          <a href="{{logout_url}}">Logout</a>
+          {% else %}
+          <a href="{{login_url}}">Login/Create Account</a>
+          {% endif %}
+        </div>
+      </header>
+      <div id="head">Life in Chroma</div>
+      <div class="top" id="create-an-album">
+        {% if user %}
+        <a href="/create.html">Create an Album</a>
+        {% else %}
+        <a href="{{login_url}}">Create an Album</a>
+        {% endif %}
+      </div>
+      <div class="bottom">
+        <div class="container" id="who-we-are">
+          <button onclick="whoShow()">Who We Are!</button>
+        </div>
+        <div class="container" id="what-we-do">
+          <button onclick="whatShow()">What We Do!</button>
+        </div>
+      </div>
+      <div id="overlay"></div>
+    </div>
+    <script>
+    var create, who, what, overlay;
+    create = document.getElementById("create-an-album");
+    who = document.getElementById("who-we-are");
+    what = document.getElementById("what-we-do");
+    overlay = document.getElementById("overlay");
+    create.onmouseover = function() {loginPoint("")};
+    create.onmouseout = function() {loginUnpoint()};
+    who.onmouseover = function() {loginPoint("who-we-are")};
+    who.onmouseout = function() {loginUnpoint()};
+    what.onmouseover = function() {loginPoint("what-we-do")};
+    what.onmouseout = function() {loginUnpoint()};
+
+    function loginPoint(corner_id) {
+      overlay.style.borderTopLeftRadius = "50%";
+      overlay.style.borderTopRightRadius = "0";
+      overlay.style.borderBottomLeftRadius = "50%";
+      overlay.style.borderBottomRightRadius = "50%";
+      overlay.style.WebkitTransform = "translate(-50%,-50%)";
+      switch (corner_id) {
+        case "who-we-are": overlay.style.WebkitTransform = "translate(-50%,-50%)" + " rotate(180deg)";
+        break;
+        case "what-we-do": overlay.style.WebkitTransform = "translate(-50%,-50%)" + " rotate(90deg)";
+        break;
+        default: overlay.style.WebkitTransform = "translate(-50%,-50%)" + " rotate(-45deg)";
+      }
+    }
+    function loginUnpoint(corner_id) {
+      overlay.style.borderTopLeftRadius = "50%";
+      overlay.style.borderTopRightRadius = "50%";
+      overlay.style.borderBottomLeftRadius = "50%";
+      overlay.style.borderBottomRightRadius = "50%";
+      overlay.style.WebkitTransform = "translate(-50%,-50%)" + " rotate(-45deg)";
+    }
+    </script>
+  </body>
+</html>

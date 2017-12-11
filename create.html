@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Create an Album</title>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Josefin+Slab">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style_create.css">
+  </head>
+  <body>
+    <div class="main">
+      <header>
+        <div id="intro">Here you can view your albums and create new ones!</div>
+        <div id="blank"></div>
+        <div id="login">
+          {% if user %}
+          Welcome {{ user.email() }}
+          <a href="{{logout_url}}">Logout</a>
+          {% else %}
+          <a href="{{login_url}}">Login/Create Account</a>
+          {% endif %}
+        </div>
+      </header>
+      <div id="head">
+        <a href="/">Life in Chroma</a>
+      </div>
+      <div class="body">
+        <div class="select-container" id="left">
+          <div id="view">
+            <div id="rear">
+              <h1>View Albums</h1>
+              {% if user %}
+              {{view_hide_form}}
+              {% endif %}
+              <!--<button class="hide-show" onclick="hideView()">Hide</button>-->
+            </div>
+            <div id="face">
+              <button class="hide-show" onclick="showView()">View Your Albums</button>
+            </div>
+          </div>
+          <div id="upload">
+            <div id="rear">
+              <h1>Upload an Album</h1>
+              {% if user %}
+              <!--
+              <form action='/albums' method='post' enctype='multipart/form-data'>
+                <label for="photos" class="file-upload-style">Upload a Photo</label>
+                <input multiple id='photos' name='photos' type='file'>
+                <input type="submit" value="Submit">
+              </form>
+            -->
+              {% if not albums_viewable %}
+              <form action='{{upload_url}}' method='POST' enctype='multipart/form-data'>
+                <!--<label for="album_name" class="file-upload-style">Album Name</label>-->
+                <label for="photos" class="file-upload-style">Select Images</label>
+                Album Name: <input id='album_name' type='text' name="album_name">
+                <input id='photos' multiple type='file' name='images'>
+                <input type='submit' name='submit' value='Upload Album'>
+              </form>
+              {% else %}
+                <p>Please 'Hide Albums' to upload new album</p>
+              {% endif %}
+              {% endif %}
+              <!--<button class="hide-show" onclick="hideUpload()">Hide</button>-->
+            </div>
+            <div id="face">
+              <button class="hide-show" onclick="showUpload()">Upload an Album</button>
+            </div>
+          </div>
+        </div>
+        <div class="select-container" id="right">
+          {% if albums_viewable or display_album_photos %}
+          <div id='img-preview-div'>
+            {% if albums_viewable %}
+              <h1>Your Albums</h1>
+              {% for key, value in albums_info.items(): %}
+              <div class="album">
+                <img id='thumbnail' alt='Thumbnail' src='{{ value }}' /> <br>
+                <form name='{{key}}' action='/view_photos/{{key}}' method='POST'>
+                  {{key}}: <input type='submit' name='submit' value='View Album Photos'>
+                </form>
+                <form name='{{key}}' action='/delete_album/{{key}}' method='POST'>
+                  <input type='submit' name='submit' value='Delete Album'>
+                </form>
+              </div>
+                <!--
+                <form name='{{key}}' action='/view_photos/{{key}}' method='POST'>
+                  <input type='submit' name='submit' value='View Album Photos'>
+                </form>
+              -->
+              {% endfor %}
+            {% else %}
+              {% for url in photo_urls: %}
+                <div class="album">
+                  <img id='thumbnail' alt='Thumbnail' src='{{ url }}'></img>
+              {% endfor %}
+                  <form name='{{album_name}}' action='/hide_photos/{{album_name}}' method='POST'>
+                    <input type='submit' name='submit' value='Hide Album Photos'>
+                  </form>
+                </div>
+            {% endif %}
+          </div>
+          {% else %}
+          <div id="icon">
+            <img alt="album icon" src="img/album.svg" />
+            <p>Icon made by <a href="http://picol.org/">Picol</a> from www.flaticon.com</p>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <script>
+      var view, upload;
+      view = document.getElementById("view");
+      upload = document.getElementById("upload");
+      function showView(){
+        view.style.background = "black";
+        rear = document.getElementById("view").children[0];
+        face = document.getElementById("view").children[1];
+        face.style.display = "none";
+        rear.style.display = "flex";
+      };
+      function hideView(){
+        view.style.background = "url('https://static.pexels.com/photos/189187/pexels-photo-189187.jpeg')";
+        view.style.backgroundSize = "cover";
+        rear = document.getElementById("view").children[0];
+        face = document.getElementById("view").children[1];
+        face.style.display = "block";
+        rear.style.display = "none";
+      };
+      function showUpload(){
+        upload.style.background = "black";
+        rear = document.getElementById("upload").children[0];
+        face = document.getElementById("upload").children[1];
+        face.style.display = "none";
+        rear.style.display = "flex";
+      };
+      function hideUpload(){
+        upload.style.background = "url('https://static.pexels.com/photos/226243/pexels-photo-226243.jpeg')";
+        upload.style.backgroundSize = "cover";
+        rear = document.getElementById("upload").children[0];
+        face = document.getElementById("upload").children[1];
+        face.style.display = "block";
+        rear.style.display = "none";
+      };
+      document.getElementById('photos').onchange = function() {
+        // SHOW PHOTO
+        /*
+        var icon = document.getElementById("icon");
+        icon.style.display = "none";
+        var reader = new FileReader();
+        var r = document.getElementById("right").style;
+        reader.onload = function (e) {
+          r.background = "url('" + e.target.result + "')";
+          r.backgroundSize = "cover";
+        };
+        r.boxShadow = "none";
+        reader.readAsDataURL(this.files[0]);
+        */
+        // SHOW FILE NAME
+        var icon = document.getElementById("icon");
+        var img_div = document.getElementById("img-preview-div");
+        icon.style.display = "none";
+        img_div.style.display = "block";
+        img_div.innerHTML += "<br>" + this.value;
+      };
+
+    </script>
+  </body>
+</html>

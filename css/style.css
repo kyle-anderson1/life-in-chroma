@@ -1,0 +1,154 @@
+body {
+  font: 24px 'Josefin Slab';
+  background: white;
+}
+.main {
+  position:fixed;
+  top:0;
+  left:0;
+  height:100%;
+  width:100%;
+  margin:0;
+  padding:0;
+  display:flex;
+  flex-flow:column;
+}
+.main > #head {
+  margin:0;
+  position:absolute;
+  top:5%;
+  left:50%;
+  margin-right:-50%;
+  transform: translate(-50%,-50%);
+  background:black;
+  color:white;
+  font-size: 2.5rem;
+  text-align:center;
+  padding:15px;
+  border-radius:4px;
+}
+.main > #overlay {
+  margin:0;
+  position:absolute;
+  top:52%;
+  left:50%;
+  margin-right:-50%;
+  transform: translate(-50%,-50%);
+  width:100px;
+  height:100px;
+  border-radius: 50% 50% 50% 50%;
+  background:black;
+}
+.main > header {
+  margin:0px;
+  padding:0px;
+  flex: .05 .05 5%;
+  order: 1;
+  background:#66b3ff;
+  display:flex;
+  flex-flow:row;
+  font-size: 1rem;
+  font-weight: bold;
+  color:white;
+}
+.main > header > #intro {
+  margin:0px;
+  padding:7px;
+  flex: .40 .40 40%;
+  order: 1;
+}
+.main > header > #blank {
+  margin:0px;
+  padding:0px;
+  flex: .35 .35 35%;
+  order: 2;
+}
+.main > header > #login {
+  margin:0px;
+  padding:7px;
+  flex: .25 .25 25%;
+  order: 3;
+}
+.main > header > #login > a {
+  text-decoration: none;
+  color:white;
+}
+.main > header > #login > a:hover { color:black; }
+.main > .top {
+  margin:0px;
+  padding:0px;
+  flex: .45 .45 45%;
+  order: 2;
+  margin: 4px;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 3pt;
+  display:flex;
+  align-items:center;
+  justify-content: center;
+}
+.main > .top > a {
+  border:none;
+  background: black;
+  padding: 15px;
+  margin:0;
+  text-decoration:overline underline;
+  font-family: 'Josefin Slab';
+  font-size: 1.5rem;
+  color:white;
+  border-radius:4px;
+}
+.main > .top > a:hover { color:grey; }
+.main > .bottom {
+  margin:0px;
+  padding:0px;
+  flex: .5 .5 50%;
+  order: 3;
+  display:flex;
+  flex-flow:row;
+}
+.container {
+  margin:0px;
+  padding:0px;
+  flex: .5 .5 50%;
+  margin: 4px;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 3pt;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.container > button {
+  border:none;
+  background: black;
+  padding: 15px;
+  margin:0;
+  font-family: 'Josefin Slab';
+  font-size: 1.5rem;
+  text-decoration:underline overline;
+  color:white;
+}
+.container > button:hover { color:grey; }
+.main > .bottom > #who-we-are {
+  order: 1;
+  background: url('https://static.pexels.com/photos/458555/pexels-photo-458555.jpeg');
+  background-size:cover;
+}
+.main > .bottom > #what-we-do {
+  order: 2;
+  background: url('https://static.pexels.com/photos/208701/pexels-photo-208701.jpeg');
+  background-size:cover;
+}
+.main > .top {
+  background: url('https://static.pexels.com/photos/635006/pexels-photo-635006.jpeg');
+  background-size:cover;
+}
+/*
+.main > .left > .bottom {
+  background: url('https://static.pexels.com/photos/458555/pexels-photo-458555.jpeg');
+  background: url('https://static.pexels.com/photos/208701/pexels-photo-208701.jpeg');
+  background: url('https://static.pexels.com/photos/207680/pexels-photo-207680.jpeg');
+  background: url('https://static.pexels.com/photos/307008/pexels-photo-307008.jpeg');
+  background-size:cover;
+}*/

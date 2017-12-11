@@ -1,0 +1,45 @@
+#application: life-in-chroma
+#version:
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /
+  script: main.application
+- url: /index.html
+  script: main.application
+- url: /create.html
+  script: create.application
+- url: /new_album
+  script: create.application
+- url: /view_albums
+  script: create.application
+- url: /hide_albums
+  script: create.application
+- url: /view_photos/([^/]+)?
+  script: create.application
+- url: /hide_photos/([^/]+)?
+  script: create.application
+- url: /delete_album/([^/]+)?
+  script: create.application
+- url: /css
+  static_dir: css
+- url: /js
+  static_dir: js
+- url: /img
+  static_dir: img
+- url: .*
+  script: main.application
+
+libraries:
+- name: webapp2
+  version: "2.5.2"
+- name: jinja2
+  version: "2.6"
+- name: markupsafe
+  version: "0.15"
+- name: PIL
+  version: "1.1.7"
+- name: webob
+  version: "latest"
