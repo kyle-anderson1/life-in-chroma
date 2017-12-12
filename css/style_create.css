@@ -200,6 +200,7 @@ form {
   font-family: 'Josefin Slab';
   //text-align:center;
   display:inline-block;
+  overflow:scroll;
 }
 .album > form > input {
   border: 1px solid white;

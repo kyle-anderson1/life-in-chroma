@@ -92,8 +92,11 @@
             {% else %}
               {% for url in photo_urls: %}
                 <div class="album">
-                  <img id='thumbnail' alt='Thumbnail' src='{{ url }}'></img>
+                  <img id='thumbnail' alt='Thumbnail' src='{{ url }}'/>
+                </div>
               {% endfor %}
+                <div class="album">
+                  <br>
                   <form name='{{album_name}}' action='/hide_photos/{{album_name}}' method='POST'>
                     <input type='submit' name='submit' value='Hide Album Photos'>
                   </form>
